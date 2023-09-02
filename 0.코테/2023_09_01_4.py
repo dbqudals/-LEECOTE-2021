@@ -1,15 +1,28 @@
 # 백준 1992
+""" 
+쿼드 트리
 
+입력:
+8
+11110000
+11110000
+00011100
+00011100
+11110000
+11110000
+11110011
+11110011
+"""
 n = int(input())
-array = [list(map(int, input())) for _ in range(n)]
+graph = [list(map(int, input())) for _ in range(n)]
 
 
 def dfs(x, y, n):
-    check = array[x][y]
+    check = graph[x][y]
 
     for i in range(x, x + n):
         for j in range(y, y + n):
-            if check != array[i][j]:
+            if check != graph[i][j]:
                 check = -1
                 break
 

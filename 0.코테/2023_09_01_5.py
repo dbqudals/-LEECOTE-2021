@@ -1,4 +1,5 @@
 # 백준 9012
+
 n = int(input())
 
 for i in range(n):
@@ -7,7 +8,7 @@ for i in range(n):
 
     for j in array:
         if j == "(":
-            stack.append(j)
+            stack.append("(")
         elif j == ")":
             if stack:
                 stack.pop()

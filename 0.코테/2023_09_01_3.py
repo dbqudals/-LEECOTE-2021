@@ -4,20 +4,19 @@
 ')' 일때는 제일 위가 '('이면 POP하고 현재까지 길이를 더하고
                     ')'이면 POP하고 1씩 더하기
 """
-
-array = list(input())
-answer = []
+array = input()
+stack = []
 result = 0
 
 for i in range(len(array)):
     if array[i] == "(":
-        answer.append("(")
+        stack.append("(")
     else:
         if array[i - 1] == "(":
-            answer.pop()
-            result += len(answer)
+            stack.pop()
+            result += len(stack)
         else:
-            answer.pop()
+            stack.pop()
             result += 1
 
 print(result)

@@ -10,57 +10,33 @@
 3 0 0 1 2 0 0 2
 """
 
-
 n = int(input())
-array1 = sorted(list(map(int, input().split())))
+array = sorted(list(map(int, input().split())))
 m = int(input())
 array2 = list(map(int, input().split()))
 
-# 시간초과
 count = {}
-""" 
-for i in range(len(array2) - 1):
-    count[array2[i]] = array1.count(array2[i])
 
-print(list(count.values()))
-"""
-# 딕셔너리
-# count = {}
-""" 
-for i in array1:
+for i in array:
     if i in count:
         count[i] += 1
     else:
         count[i] = 1
 
-for i in array2:
-    if i in count:
-        print(count[i], end=" ")
-    else:
-        print(0, end=" ")
- """
 
-
-# 이분탐색
 def bs(array, target, start, end):
     if start > end:
         return 0
 
-    mid = (start + end) // 2
+    middle = (start + end) // 2
 
-    if array[mid] == target:
+    if array[middle] == target:
         return count.get(target)
-    elif array[mid] > target:
-        return bs(array, target, start, mid - 1)
+    elif array[middle] < target:
+        return bs(array, target, start, middle - 1)
     else:
-        return bs(array, target, mid + 1, end)
+        return bs(array, target, middle + 1, end)
 
 
-for i in array1:
-    if i in count:
-        count[i] += 1
-    else:
-        count[i] = 1
-
-for i in array2:
-    print(bs(array1, i, 0, len(array1) - 1), end=" ")
+for j in array2:
+    print(bs(array, j, 0, len(array) - 1), end=" ")
