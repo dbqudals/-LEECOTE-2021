@@ -1,4 +1,4 @@
-# 프로그래머스 정렬 최소직사각형
+# 프로그래머스 완전탐색 최소직사각형
 def solution(sizes):
     array2 = []
     array1 = []
